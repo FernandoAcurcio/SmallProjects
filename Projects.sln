@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathGame", "MathGame\MathGame.csproj", "{DFB43503-FE59-4E9E-B31B-064BE13BBB63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MathGame", "MathGame", "{0511F0C4-D56F-48DD-A50E-60D91F141E10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFB43503-FE59-4E9E-B31B-064BE13BBB63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB43503-FE59-4E9E-B31B-064BE13BBB63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB43503-FE59-4E9E-B31B-064BE13BBB63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB43503-FE59-4E9E-B31B-064BE13BBB63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DFB43503-FE59-4E9E-B31B-064BE13BBB63} = {0511F0C4-D56F-48DD-A50E-60D91F141E10}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F84AF155-AE0B-4705-84AA-3E928466C21D}
+	EndGlobalSection
+EndGlobal
