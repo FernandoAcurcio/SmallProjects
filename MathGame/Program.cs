@@ -5,6 +5,7 @@ namespace MathGame
 {
     internal class Program
     {
+        // A list to store the results of arithmetic operations.
         private static List<int> _resultOperationsList = new List<int>();
 
         static void Main(string[] args)
@@ -12,6 +13,7 @@ namespace MathGame
             GameMenu();
         }
 
+        // The main game menu where the user selects operations.
         private static void GameMenu()
         {
             int selectionNumber;
@@ -23,6 +25,7 @@ namespace MathGame
             } while (selectionNumber != 0);
         }
 
+        // Manages the menus, user input, and operation selection.
         private static int MenuManager()
         {
             DisplayMenu();
@@ -31,7 +34,7 @@ namespace MathGame
                 switch (selectionNumber)
                 {
                     case 0:
-                        return 0;
+                        return 0; // Exits the game if the user selects "0".
                     case 1:
                     case 2:
                     case 3:
@@ -54,6 +57,7 @@ namespace MathGame
             }
         }
 
+        // Displays the main menu options to the user.
         private static void DisplayMenu()
         {
             Console.WriteLine("Please choose an operation?");
@@ -65,6 +69,7 @@ namespace MathGame
             Console.WriteLine("Click 0 to exit");
         }
 
+        // Performs arithmetic operations based on user input.
         private static void PerformOperation(int operation)
         {
             string operationName = "";
@@ -116,6 +121,7 @@ namespace MathGame
             }
         }
 
+        // Displays the history of operations.
         private static int DisplayHistoryList()
         {
             for (int i = 0; i < _resultOperationsList.Count; i++)
