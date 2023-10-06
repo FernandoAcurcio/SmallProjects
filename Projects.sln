@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Calculator", "Calculator", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{4DF5B24B-8843-4684-86B3-CAD1C7E150DA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ParkingSoftware", "ParkingSoftware", "{8DE69EC0-7994-4DF2-A895-2AA74BBC98AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarParkingSimulator", "CarParkingSimulator\CarParkingSimulator.csproj", "{D2865FDB-BC16-4EB6-A701-1BA6A9ED96DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,10 @@ Global
 		{4DF5B24B-8843-4684-86B3-CAD1C7E150DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DF5B24B-8843-4684-86B3-CAD1C7E150DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DF5B24B-8843-4684-86B3-CAD1C7E150DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2865FDB-BC16-4EB6-A701-1BA6A9ED96DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2865FDB-BC16-4EB6-A701-1BA6A9ED96DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2865FDB-BC16-4EB6-A701-1BA6A9ED96DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2865FDB-BC16-4EB6-A701-1BA6A9ED96DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DFB43503-FE59-4E9E-B31B-064BE13BBB63} = {0511F0C4-D56F-48DD-A50E-60D91F141E10}
 		{4DF5B24B-8843-4684-86B3-CAD1C7E150DA} = {9AF53072-9FCF-4557-9C27-02DF2BC9638D}
+		{D2865FDB-BC16-4EB6-A701-1BA6A9ED96DC} = {8DE69EC0-7994-4DF2-A895-2AA74BBC98AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F84AF155-AE0B-4705-84AA-3E928466C21D}
