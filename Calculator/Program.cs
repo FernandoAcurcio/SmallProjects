@@ -8,9 +8,17 @@ namespace Calculator;
 */
 internal class Program
 {
+    private static int variableX = 0;
     static void Main(string[] args)
     {
+        ChangeX(ref variableX);
         CalculatorHandler();
+    }
+
+    private static void ChangeX(ref int value)
+    {
+        value += 5;
+        Console.WriteLine(value);
     }
 
     private static void CalculatorHandler()
@@ -79,4 +87,6 @@ internal class Program
         //Console.WriteLine("5- Game History;");
         Console.WriteLine("Click 0 to exit");
     }
+
+
 }
