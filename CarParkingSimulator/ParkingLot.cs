@@ -6,25 +6,11 @@ using System.Threading.Tasks;
 
 namespace CarParkingSimulator
 {
-    //        Help us design a parking lot
-
-    //Goals: Design a parking lot using object-oriented principles
-    //Here are a few methods that you should be able to run:
-    //Tell us how many spots are remaining
-    //Tell us how many total spots are in the parking lot
-    //Tell us when the parking lot is full
-    //Tell us when the parking lot is empty
-    //Tell us when certain spots are full e.g.when all motorcycle spots are taken
-    //Tell us how many spots vans are taking up
-    //Assumptions:
-
-    //The parking lot can hold motorcycles, cars and vans
-    //The parking lot has motorcycle spots, car spots and large spots
-    //A motorcycle can park in any spot
-    //A car can park in a single compact spot, or a regular spot
-    //A van can park, but it will take up 3 regular spots
-    //These are just a few assumptions.Feel free to ask your interviewer about more assumptions as needed
-
+    
+    /* TODO: need to implement lists, so I can know what type of cars are stored inside our parking lot
+     * Example: When we store a van, she occupy one van space or three normal spaces, when  we withdraw a van we no longer know that a van was
+     * stored in normal spaces
+     */
     public class ParkingLot
     {
         private int _disableSpot;
@@ -142,7 +128,6 @@ namespace CarParkingSimulator
             }
         }
 
-
         private void WithdrawVehicle()
         {
             DisplayVehicleMenu();
@@ -185,20 +170,6 @@ namespace CarParkingSimulator
             Console.WriteLine("4- Motorcycle");
             Console.WriteLine("5- Exit");
             Console.WriteLine();
-        }
-
-        private void CheckForAvailability(ref int spot, int requiredSpots)
-        {
-            if (spot >= requiredSpots)
-            {
-                spot -= requiredSpots;
-                Console.WriteLine("Successfully Parked");
-            }
-            else
-            {
-                Console.WriteLine($"There are not enough parking spots available for this vehicle (requires {requiredSpots}).");
-            }
-            Console.ReadLine();
         }
 
         private void CheckForAvailability(int vehicleType)
