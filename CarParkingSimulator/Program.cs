@@ -6,11 +6,10 @@ namespace CarParkingSimulator
 {
     internal class Program
     {
-
-        
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var parkinglot = new ParkingLot();
+            parkinglot.Run();
         }
     }
 }
