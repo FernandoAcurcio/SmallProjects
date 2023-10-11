@@ -5,6 +5,7 @@
 using Academy;
 using Academy.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 internal class Program
 {
@@ -20,6 +21,7 @@ internal class Program
         ProcessInsert();
         ProcessSelect();
         ProcessUpdate();
+        ProcessRepository();
 
         void ProcessInsert()
         {
@@ -123,7 +125,25 @@ internal class Program
 
             dbContext = new ApplicationDbContext(options);
             student = dbContext.Students.First();
+            dbContext.Dispose();
+        }
 
+        async void ProcessRepository()
+        {
+            dbContext = new ApplicationDbContext(options);
+
+            var repository = new GenericRepository<Student>(dbContext);
+
+            // simple select
+            var students = await repository.GetAsync(null,null);
+            var student = await repository.GetByIdAsync(students.First().Id);   
+
+            // includes 
+            student = await repository.GetByIdAsync(student.Id, (student) => student.Address, (student) => student.Classes);
+
+            // filters
+            Expression<Func<Student, bool>> filter = (student) => student.FirstName == "Maria";
+            students = await repository.GetFilteredAsync(new[] {filter}, null, null);
 
             Console.ReadLine();
         }
