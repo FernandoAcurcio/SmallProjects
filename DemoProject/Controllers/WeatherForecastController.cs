@@ -12,15 +12,18 @@ namespace DemoProject.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private NameService _nameService { get; set; }
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, NameService nameService)
         {
             _logger = logger;
+            _nameService = nameService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            //throw new InvalidNameException();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -28,6 +31,27 @@ namespace DemoProject.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPost(Name = "PostWeatherForecast")]
+        public async Task<IActionResult> Post()
+        {
+            // post logic
+            return Ok("Weather forecast posted.");
+        }
+        
+        [HttpPut(Name = "PutWeatherForecast")]
+        public async Task<IActionResult> Put(WeatherForecast weatherForecast)
+        {
+            // put logic
+            return Ok("Weather forecast updated.");
+        }
+        
+        [HttpDelete(Name = "DeleteWeatherForecast")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            // deleted logic
+            return Ok("Weather forecast deleted.");
         }
     }
 }
