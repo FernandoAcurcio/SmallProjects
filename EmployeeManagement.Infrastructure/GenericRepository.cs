@@ -81,7 +81,7 @@ namespace EmployeeManagement.Infrastructure
             await _applicationDbContext.SaveChangesAsync();
         }
 
-        public void UpdateAsync(T entity)
+        public void Update(T entity)
         {
             _dbSet.Attach(entity);
             _applicationDbContext.Entry(entity).State = EntityState.Modified;

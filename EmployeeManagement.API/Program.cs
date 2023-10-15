@@ -1,3 +1,6 @@
+using EmployeeManagement.Business;
+using EmployeeManagement.Common.Interfaces;
+using EmployeeManagement.Common.Model;
 using EmployeeManagement.Infrastructure;
 
 internal class Program
@@ -7,8 +10,9 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        DIConfiguration.RegisterServices(builder.Services);
         builder.Services.AddDbContext<ApplicationDbContext>();
-
+        builder.Services.AddScoped<IGenericRepository<Address>, GenericRepository<Address>>();  
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

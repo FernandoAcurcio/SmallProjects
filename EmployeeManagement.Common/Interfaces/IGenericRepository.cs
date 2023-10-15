@@ -9,8 +9,8 @@ namespace EmployeeManagement.Common.Interfaces
         Task<List<T>> GetAsync(int? skip, int? take, params Expression<Func<T, object>>[] includes);
         Task<T?> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes);
         Task<int> InsertAsync(T entity);
-        void UpdateAsync(T entity);
-        Task DeleteAsync(T entity);
+        void Update(T entity);
+        void Delete(T entity);
         Task SaveChangesAsync();
     }
 }
