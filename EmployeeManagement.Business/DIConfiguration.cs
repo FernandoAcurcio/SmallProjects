@@ -15,6 +15,7 @@ namespace EmployeeManagement.Business
             services.AddAutoMapper(typeof(DtoEntityMapperProfile));
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IJobService, JobService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
         }
     }
 }
