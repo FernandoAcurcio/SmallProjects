@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using EmployeeManagement.Common.Dtos;
+using EmployeeManagement.Common.Dtos.Address;
 using EmployeeManagement.Common.Interfaces;
 using EmployeeManagement.Common.Model;
 

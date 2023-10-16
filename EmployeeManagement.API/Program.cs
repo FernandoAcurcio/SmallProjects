@@ -13,6 +13,7 @@ internal class Program
         DIConfiguration.RegisterServices(builder.Services);
         builder.Services.AddDbContext<ApplicationDbContext>();
         builder.Services.AddScoped<IGenericRepository<Address>, GenericRepository<Address>>();  
+        builder.Services.AddScoped<IGenericRepository<Job>, GenericRepository<Job>>();  
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

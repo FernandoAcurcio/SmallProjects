@@ -14,6 +14,7 @@ namespace EmployeeManagement.Business
             // typeof(DtoEntityMapperProfile) specifies the AutoMapper profile class.
             services.AddAutoMapper(typeof(DtoEntityMapperProfile));
             services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<IJobService, JobService>();
         }
     }
 }
