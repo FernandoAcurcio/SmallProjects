@@ -1,4 +1,4 @@
-﻿namespace EmployeeManagement.Common.Interfaces
+﻿namespace EmployeeManagement.Common.Dtos.Teams
 {
     public class TeamUpdate
     {
