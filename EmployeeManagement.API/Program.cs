@@ -2,6 +2,7 @@ using EmployeeManagement.Business;
 using EmployeeManagement.Common.Interfaces;
 using EmployeeManagement.Common.Model;
 using EmployeeManagement.Infrastructure;
+using System.Diagnostics;
 
 internal class Program
 {
@@ -14,6 +15,8 @@ internal class Program
         builder.Services.AddDbContext<ApplicationDbContext>();
         builder.Services.AddScoped<IGenericRepository<Address>, GenericRepository<Address>>();  
         builder.Services.AddScoped<IGenericRepository<Job>, GenericRepository<Job>>();  
+        Debug.WriteLine("");
+
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
