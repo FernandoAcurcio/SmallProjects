@@ -1,6 +1,4 @@
 ﻿namespace EmployeeManagement.Common.Dtos.Teams
 {
-    public class TeamDelete
-    {
-    }
+    public record TeamDelete(int Id);
 }

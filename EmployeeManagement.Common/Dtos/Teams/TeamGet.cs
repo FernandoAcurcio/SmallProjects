@@ -1,6 +1,6 @@
-﻿namespace EmployeeManagement.Common.Dtos.Teams
+﻿using EmployeeManagement.Common.Dtos.Employee;
+
+namespace EmployeeManagement.Common.Dtos.Teams
 {
-    public class TeamGet
-    {
-    }
+    public record TeamGet(int Id, string Name, List<EmployeeList> Employees);
 }

@@ -2,7 +2,7 @@
 
 namespace EmployeeManagement.Common.Interfaces
 {
-    public interface ITeamsService
+    public interface ITeamService
     {
         Task<int> CreateTeamAsync(TeamCreate teamCreate);
         Task UpdateTeamAsync(TeamUpdate teamUpdate);

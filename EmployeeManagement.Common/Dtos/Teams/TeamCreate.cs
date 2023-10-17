@@ -1,6 +1,4 @@
 ﻿namespace EmployeeManagement.Common.Dtos.Teams
 {
-    public class TeamCreate
-    {
-    }
+    public record TeamCreate(string Name, List<int> Employees);
 }

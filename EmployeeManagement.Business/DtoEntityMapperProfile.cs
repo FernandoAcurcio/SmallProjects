@@ -2,6 +2,7 @@
 using EmployeeManagement.Common.Dtos.Address;
 using EmployeeManagement.Common.Dtos.Employee;
 using EmployeeManagement.Common.Dtos.Job;
+using EmployeeManagement.Common.Dtos.Teams;
 using EmployeeManagement.Common.Model;
 using System.ComponentModel.Design;
 
@@ -35,6 +36,12 @@ namespace EmployeeManagement.Business
                    .ForMember(dest => dest.Address, opt => opt.Ignore());
             CreateMap<Employee, EmployeeList>();
 
+            CreateMap<TeamCreate, Team>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Employees, opt => opt.Ignore());
+            CreateMap<TeamUpdate, Team>()
+                .ForMember(dest => dest.Employees, opt => opt.Ignore());
+            CreateMap<Team, TeamGet>();
         }
 
     }
