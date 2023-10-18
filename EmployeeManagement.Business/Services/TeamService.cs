@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using EmployeeManagement.Business.Validation;
 using EmployeeManagement.Common.Dtos.Teams;
 using EmployeeManagement.Common.Interfaces;
 using EmployeeManagement.Common.Model;
+using FluentValidation;
 using System.Linq.Expressions;
 
 namespace EmployeeManagement.Business.Services
@@ -11,16 +13,22 @@ namespace EmployeeManagement.Business.Services
         private IGenericRepository<Team> _teamRepository { get; }
         private IGenericRepository<Employee> _employeeRepository { get; }
         private IMapper _mapper { get; }
+        private TeamCreateValidator _teamCreateValidator { get; }
+        private TeamUpdateValidator _teamUpdateValidator { get; }
 
-        public TeamService(IGenericRepository<Team> teamRepository, IGenericRepository<Employee> employeeRepository, IMapper mapper)
+        public TeamService(IGenericRepository<Team> teamRepository, IGenericRepository<Employee> employeeRepository, IMapper mapper,
+               TeamCreateValidator teamCreateValidator, TeamUpdateValidator teamUpdateValidator)
         {
             _teamRepository = teamRepository;
             _employeeRepository = employeeRepository;
             _mapper = mapper;
+            _teamCreateValidator = teamCreateValidator;
+            _teamUpdateValidator = teamUpdateValidator;
         }
 
         public async Task<int> CreateTeamAsync(TeamCreate teamCreate)
         {
+            await _teamCreateValidator.ValidateAndThrowAsync(teamCreate);
             // filter
             Expression<Func<Employee, bool>> employeeFilter = (employee) => teamCreate.Employees.Contains(employee.Id);
             
@@ -53,6 +61,7 @@ namespace EmployeeManagement.Business.Services
 
         public async Task UpdateTeamAsync(TeamUpdate teamUpdate)
         {
+            await _teamUpdateValidator.ValidateAndThrowAsync(teamUpdate);
             // filter
             Expression<Func<Employee, bool>> employeeFilter = (employee) => teamUpdate.Employees.Contains(employee.Id);
 

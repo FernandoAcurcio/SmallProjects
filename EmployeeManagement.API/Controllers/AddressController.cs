@@ -17,7 +17,7 @@ namespace EmployeeManagement.API.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public async Task<IActionResult> CreateAddress(AddressCreate addressCreate)
+        public async Task<IActionResult> CreateAddress(AddressUpdate addressCreate)
         {
             var id = await _addressService.CreateAddressAsync(addressCreate);
             return Ok(id);

@@ -1,4 +1,4 @@
 ﻿namespace EmployeeManagement.Common.Dtos.Job
 {
-    public record JobUpdate(int id, string name, string description);
+    public record JobUpdate(int Id, string Name, string Description);
 }

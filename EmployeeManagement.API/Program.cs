@@ -1,3 +1,4 @@
+using EmployeeManagement.API;
 using EmployeeManagement.Business;
 using EmployeeManagement.Common.Interfaces;
 using EmployeeManagement.Common.Model;
@@ -38,6 +39,8 @@ internal class Program
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             dbContext.Database.EnsureCreated();
         }
+
+        app.UseMiddleware<ExceptionMiddleware>();
 
         app.UseHttpsRedirection();
 

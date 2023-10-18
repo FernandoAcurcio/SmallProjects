@@ -43,7 +43,7 @@ namespace EmployeeManagement.API.Controllers
         [Route("Get/{id}")]
         public async Task<IActionResult> GetTeam(int id)
         {
-            var team = _teamService.GetTeamAsync(id);   
+            var team = await _teamService.GetTeamAsync(id);   
             return Ok(team);
         }
         

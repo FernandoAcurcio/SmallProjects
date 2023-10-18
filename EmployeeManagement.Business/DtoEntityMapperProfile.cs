@@ -12,7 +12,7 @@ namespace EmployeeManagement.Business
     {
         public DtoEntityMapperProfile()
         {
-            CreateMap<AddressCreate, Address>().ForMember(dest => dest.Id, opt => opt.Ignore());
+            CreateMap<AddressUpdate, Address>().ForMember(dest => dest.Id, opt => opt.Ignore());
             CreateMap<AddressUpdate, Address>();
             CreateMap<Address, AddressGet>();
 
