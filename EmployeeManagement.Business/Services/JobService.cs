@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EmployeeManagement.Business.Exceptions;
 using EmployeeManagement.Business.Validation;
 using EmployeeManagement.Common.Dtos.Job;
 using EmployeeManagement.Common.Interfaces;
@@ -34,14 +35,22 @@ namespace EmployeeManagement.Business.Services
 
         public async Task DeleteJobAsync(JobDelete jobDelete)
         {
-            var entity = await _jobRepository.GetByIdAsync(jobDelete.Id);
+            var entity = await _jobRepository.GetByIdAsync(jobDelete.Id, job => job.Employees);
+
+            if (entity == null) { throw new JobNotFoundException(jobDelete.Id); }
+
+            if (entity.Employees.Count > 0)
+                throw new DependentEmployeesExistException(entity.Employees);
+
             _jobRepository.Delete(entity);
-            await _jobRepository.SaveChangesAsync();    
+            await _jobRepository.SaveChangesAsync();
         }
 
         public async Task<JobGet> GetJobAsync(int id)
         {
             var entity = await _jobRepository.GetByIdAsync(id);
+
+            if (entity == null) { throw new JobNotFoundException(id); }
             return _mapper.Map<JobGet>(entity);
         }
 
@@ -54,6 +63,12 @@ namespace EmployeeManagement.Business.Services
         public async Task UpdateJobAsync(JobUpdate jobUpdate)
         {
             await _jobUpdateValidator.ValidateAndThrowAsync(jobUpdate);
+
+            var existingJob = _jobRepository.GetByIdAsync(jobUpdate.Id);
+
+            if (existingJob == null)
+                throw new JobNotFoundException(jobUpdate.Id);
+
             var entity = _mapper.Map<Job>(jobUpdate);
             _jobRepository.Update(entity);
             await _jobRepository.SaveChangesAsync();

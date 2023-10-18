@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EmployeeManagement.Business.Exceptions;
 using EmployeeManagement.Business.Validation;
 using EmployeeManagement.Common.Dtos.Address;
 using EmployeeManagement.Common.Interfaces;
@@ -14,7 +15,7 @@ namespace EmployeeManagement.Business.Services
         private AddressCreateValidator _addressCreateValidator { get; }
         private AddressUpdateValidator _addressUpdateValidator { get; }
 
-        public AddressService(IMapper mapper, IGenericRepository<Address> addressRepository, 
+        public AddressService(IMapper mapper, IGenericRepository<Address> addressRepository,
                AddressCreateValidator addressCreateValidator, AddressUpdateValidator addressUpdateValidator)
         {
             _mapper = mapper;
@@ -34,14 +35,22 @@ namespace EmployeeManagement.Business.Services
 
         public async Task DeleteAddressAsync(AddressDelete addressDelete)
         {
-            var entity = await _addressRepository.GetByIdAsync(addressDelete.Id);
+            var entity = await _addressRepository.GetByIdAsync(addressDelete.Id, address => address.Employees);
+
+            if (entity == null) { throw new AddressNotFoundException(addressDelete.Id); }
+
+            if (entity.Employees.Count > 0) { throw new DependentEmployeesExistException(entity.Employees); }
+
             _addressRepository.Delete(entity);
-            await _addressRepository.SaveChangesAsync();    
+            await _addressRepository.SaveChangesAsync();
         }
 
         public async Task<AddressGet> GetAddressAsync(int id)
         {
             var entity = await _addressRepository.GetByIdAsync(id);
+
+            if (entity == null) { throw new AddressNotFoundException(id); }
+
             return _mapper.Map<AddressGet>(entity);
         }
 
@@ -54,6 +63,11 @@ namespace EmployeeManagement.Business.Services
         public async Task UpdateAddressAsync(AddressUpdate addressUpdate)
         {
             await _addressUpdateValidator.ValidateAndThrowAsync(addressUpdate);
+
+            var existingAddress = await _addressRepository.GetByIdAsync(addressUpdate.Id);
+
+            if (existingAddress == null) { throw new AddressNotFoundException(addressUpdate.Id); }
+
             var entity = _mapper.Map<Address>(addressUpdate);
             _addressRepository.Update(entity);
             await _addressRepository.SaveChangesAsync();

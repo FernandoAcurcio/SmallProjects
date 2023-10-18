@@ -4,6 +4,5 @@ using EmployeeManagement.Common.Dtos.Teams;
 
 namespace EmployeeManagement.Common.Dtos.Employee
 {
-    //TODO: add teams
-    public record EmployeeDetails(int Id, string FirstName, string LastName, AddressGet Address, JobGet Job/*, List<TeamGet> Teams*/);
+    public record EmployeeDetails(int Id, string FirstName, string LastName, AddressGet Address, JobGet Job, List<TeamGet> Teams);
 }

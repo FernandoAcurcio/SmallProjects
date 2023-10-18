@@ -7,8 +7,8 @@ namespace EmployeeManagement.Business.Validation
     {
         public EmployeeUpdateValidator()
         {
-            RuleFor(employeeUpdate => employeeUpdate.FirstName).NotEmpty().MaximumLength(100);
-            RuleFor(employeeUpdate => employeeUpdate.LastName).NotEmpty().MaximumLength(100);          
+            RuleFor(employeeUpdate => employeeUpdate.FirstName).NotEmpty().MaximumLength(50);
+            RuleFor(employeeUpdate => employeeUpdate.LastName).NotEmpty().MaximumLength(50);          
         }
     }
 }
