@@ -1,0 +1,8 @@
+﻿using EmployeeManagement.Common.Dtos.Address;
+using EmployeeManagement.Common.Dtos.Job;
+using EmployeeManagement.Common.Dtos.Teams;
+
+namespace EmployeeManagement.Common.Dtos.Employee
+{
+    public record EmployeeDetails(int Id, string FirstName, string LastName, AddressGet Address, JobGet Job, List<TeamGet> Teams);
+}
