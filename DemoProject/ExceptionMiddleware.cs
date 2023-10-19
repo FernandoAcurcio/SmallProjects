@@ -17,7 +17,7 @@ namespace DemoProject
             {
                 await _next(httpContext);
             }
-            catch (InvalidNameException ex)
+            catch (InvalidNameException)
             {
                 httpContext.Response.ContentType = "application/problem+json";
                 httpContext.Response.StatusCode = 400;
@@ -34,7 +34,7 @@ namespace DemoProject
                 var problemDetaisJson = JsonSerializer.Serialize(problemDetails);
                 await httpContext.Response.WriteAsync(problemDetaisJson);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 httpContext.Response.ContentType = "application/problem+json";
                 httpContext.Response.StatusCode = 500;

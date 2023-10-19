@@ -34,21 +34,21 @@ namespace DemoProject.Controllers
         }
 
         [HttpPost(Name = "PostWeatherForecast")]
-        public async Task<IActionResult> Post()
+        public IActionResult Post()
         {
             // post logic
             return Ok("Weather forecast posted.");
         }
-        
+
         [HttpPut(Name = "PutWeatherForecast")]
-        public async Task<IActionResult> Put(WeatherForecast weatherForecast)
+        public IActionResult Put(WeatherForecast weatherForecast)
         {
             // put logic
             return Ok("Weather forecast updated.");
         }
-        
+
         [HttpDelete(Name = "DeleteWeatherForecast")]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
             // deleted logic
             return Ok("Weather forecast deleted.");
