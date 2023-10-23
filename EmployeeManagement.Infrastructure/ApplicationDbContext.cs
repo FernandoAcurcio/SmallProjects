@@ -18,7 +18,7 @@ namespace EmployeeManagement.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=EmployeeManagement.db");
+            optionsBuilder.UseSqlite("Filename=Company.db");
             base.OnConfiguring(optionsBuilder);
         }
 

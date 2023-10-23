@@ -41,6 +41,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Common",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Infrastructure", "EmployeeManagement.Infrastructure\EmployeeManagement.Infrastructure.csproj", "{8C06BC26-A9F4-4558-A86A-4723186323B8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Minimal API", "Minimal API", "{E01E0BE8-B464-4B6E-86BA-BDFE359C461C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI", "MinimalAPI\MinimalAPI.csproj", "{B9A853D9-B265-43D1-B627-4FA4F7449352}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +88,10 @@ Global
 		{8C06BC26-A9F4-4558-A86A-4723186323B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C06BC26-A9F4-4558-A86A-4723186323B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C06BC26-A9F4-4558-A86A-4723186323B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A853D9-B265-43D1-B627-4FA4F7449352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A853D9-B265-43D1-B627-4FA4F7449352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A853D9-B265-43D1-B627-4FA4F7449352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A853D9-B265-43D1-B627-4FA4F7449352}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +108,7 @@ Global
 		{B3748777-15E9-410E-885B-1F58AB2DFDA6} = {0FBC22A5-E1F1-4EAA-A548-9710CB2DC0E9}
 		{9EBABDB9-9A56-42AB-AE4F-A8B6A81E6549} = {0FBC22A5-E1F1-4EAA-A548-9710CB2DC0E9}
 		{8C06BC26-A9F4-4558-A86A-4723186323B8} = {0FBC22A5-E1F1-4EAA-A548-9710CB2DC0E9}
+		{B9A853D9-B265-43D1-B627-4FA4F7449352} = {E01E0BE8-B464-4B6E-86BA-BDFE359C461C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F84AF155-AE0B-4705-84AA-3E928466C21D}
