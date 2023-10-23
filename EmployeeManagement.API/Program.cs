@@ -29,6 +29,8 @@ internal class Program
 
         var app = builder.Build();
 
+        Debug.WriteLine("test push");
+
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
