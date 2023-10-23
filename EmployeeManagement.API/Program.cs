@@ -3,8 +3,10 @@ using EmployeeManagement.Business;
 using EmployeeManagement.Common.Interfaces;
 using EmployeeManagement.Common.Model;
 using EmployeeManagement.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.Identity.Web;
 using System.Diagnostics;
 
 internal class Program
@@ -26,6 +28,26 @@ internal class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        var clientID = Environment.GetEnvironmentVariable("CLIENT_ID");
+        var clientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
+        var adDomain = Environment.GetEnvironmentVariable("AD_DOMAIN");
+        var identityInstance = Environment.GetEnvironmentVariable("IDENTITY_INSTANCE");
+        var identityScope = Environment.GetEnvironmentVariable("SCOPE");
+        var tenantId = Environment.GetEnvironmentVariable("TENANT_ID");
+        var callbackPath = Environment.GetEnvironmentVariable("CALLBACK_PATH");
+
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApi(bearerOptions => { },
+            miOptions =>
+            {
+                miOptions.ClientId = clientID;
+                miOptions.ClientSecret = clientSecret;
+                miOptions.Domain = adDomain;
+                miOptions.Instance = identityInstance;
+                miOptions.TenantId = tenantId;
+                miOptions.CallbackPath = callbackPath;
+            });
 
         var app = builder.Build();
 
@@ -49,6 +71,7 @@ internal class Program
 
         app.UseHttpsRedirection();
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllers();
