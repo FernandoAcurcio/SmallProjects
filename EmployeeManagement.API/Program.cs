@@ -3,6 +3,8 @@ using EmployeeManagement.Business;
 using EmployeeManagement.Common.Interfaces;
 using EmployeeManagement.Common.Model;
 using EmployeeManagement.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.Diagnostics;
 
 internal class Program
@@ -13,7 +15,8 @@ internal class Program
 
         // Add services to the container.
         DIConfiguration.RegisterServices(builder.Services);
-        builder.Services.AddDbContext<ApplicationDbContext>();
+        var dbFilename = Environment.GetEnvironmentVariable("DB_FILENAME");
+        builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite($"Filename={dbFilename}"));
         builder.Services.AddScoped<IGenericRepository<Address>, GenericRepository<Address>>();  
         builder.Services.AddScoped<IGenericRepository<Job>, GenericRepository<Job>>();  
         builder.Services.AddScoped<IGenericRepository<Employee>, GenericRepository<Employee>>();  
